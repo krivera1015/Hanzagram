@@ -1,0 +1,16 @@
+<h2>Edit your Picture!</h2>
+
+<%= image_tag @post.image %>
+<%= form_for @post do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image%>
+  <br/>
+  <%= f.label :caption %>
+  <%= f.text_field :caption %>
+  <br/>
+  <%= f.submit "Upload!"%>
+<% end %>
+
+<%= form_tag post_path(@post), method: 'delete' do %>
+  <% submit_tag 'Delete Post'%>
+<% end %>

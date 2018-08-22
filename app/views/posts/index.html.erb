@@ -1,3 +1,5 @@
 <% @posts.each do |post| %>
-<%= image_tag post.image %> <%= post.caption %>
+  <%= link_to (image_tag post.image), post_path(post) %><br/>
+  <%= post.caption %>
+  <br/>
 <% end %>
