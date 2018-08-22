@@ -9,11 +9,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    byebug
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "That is a nice looking picture!"
       redirect_to posts_path

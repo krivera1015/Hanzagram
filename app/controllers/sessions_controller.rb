@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       # We want to show all of the post that are tied to this user
-      redirect_to posts_path
+      redirect_to new_post_path
     else
       redirect_to login_path
     end
