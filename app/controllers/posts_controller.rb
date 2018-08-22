@@ -12,10 +12,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
     if @post.save
+      flash[:success] = "That is a nice looking picture!"
       redirect_to posts_path
     else
+      flash.now[:alert] = "Your new post was not processed!"
       render :new
     end
   end
@@ -35,13 +36,13 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path 
+    redirect_to posts_path
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:caption, :image)
+    params.require(:post).permit(:caption, :image, :user_id)
   end
 
   def set_post

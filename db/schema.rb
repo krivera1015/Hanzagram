@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_133039) do
 
   create_table "posts", force: :cascade do |t|
     t.string "caption"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_133039) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index [nil], name: "index_users_on_user_name", unique: true
   end
 
 end
