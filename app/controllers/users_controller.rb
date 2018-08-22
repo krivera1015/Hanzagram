@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authorized, except: [:index, :new, :create]
+
   def new
     @user = User.new
   end
@@ -22,6 +24,10 @@ private
 
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  def authorized
+    redirect_to login_path unless session[:user_id]
   end
 
 end

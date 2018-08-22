@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  before_action :authorized, except: [:show, :new, :create]
+
   def new
   end
 
@@ -14,6 +16,20 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path
     end
+  end
+
+  def show
+
+  end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to login_path
+  end
+
+private
+  def authorized
+    redirect_to login_path unless session[:user_id]
   end
 
 end
