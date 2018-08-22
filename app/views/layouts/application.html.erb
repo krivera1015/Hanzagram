@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <h1>HanzAgram -__-</h1>
+    <% if is_loggedin? %>
+      <%= form_tag "/logout", method: :delete do %>
+      <%= submit_tag "Logout" %>
+      <% end %>
+    <% else %>
+    <%= link_to "Log In", login_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,17 +1,20 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, except: [:index, :new, :create]
+
 
   def index
     @posts = Post.all
   end
 
   def new
-    @post = Post.new
+    byebug
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "That is a nice looking picture!"
       redirect_to posts_path
@@ -47,6 +50,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def authorized
+    redirect_to login_path unless session[:user_id]
   end
 
 end
