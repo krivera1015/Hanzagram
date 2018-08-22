@@ -1,4 +1,4 @@
-<h1>Sign Up!</h1>
+<h3>Sign Up!</h3>
 
 
 <%= form_for(@user) do |f| %>
@@ -6,6 +6,6 @@
   <%= f.text_field :username %>
   <br/>
   <%= f.label :password %>
-  <%= f.text_field :password %>
+  <%= f.password_field :password %>
   <%= f.submit "Sign Up!" %>
 <% end %>

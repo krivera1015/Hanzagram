@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, except: [:index, :new, :create]
 
   def index
     @posts = Post.all
@@ -47,6 +48,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def authorized
+    redirect_to login_path unless session[:user_id]
   end
 
 end
