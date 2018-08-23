@@ -1,8 +1,41 @@
-<%= form_for(@user) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <br/>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Sign Up!" %>
-<% end %>
+<div class="login-background"></div>
+<div class="registration-bg">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="log-in panel">
+
+          <div class="panel-heading">
+
+            <h2 id="creation-h2">Create Your Account</h2>
+
+          </div>
+
+            <%= form_for(@user) do |f| %>
+
+              <div class="panel-body">
+                <div class="input-lg"><%= f.label :username %></div>
+                <div class="input-lg"><%= f.text_field :username %></div>
+
+                <div class="input-lg"><%= f.label :password %></div>
+                <div class="input-lg"><%= f.password_field :password %></div>
+
+                <div class="btn-lg"><%= f.submit "Sign Up!" %></div>
+
+              </div>
+
+            <% end %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
