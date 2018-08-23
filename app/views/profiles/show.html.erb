@@ -1,0 +1,10 @@
+<%= profile_avatar(@user) %>
+
+<h3 class="profile-user-name">
+  <%= @user.username %>
+  <% if @user == current_user %>
+  <%= link_to 'Edit Profile', edit_profile_path(@user.username) %>
+<% end %>
+<%= @user.bio %>
+<%= pluralize @user.posts.count, 'post' %>
+<%= render "posts/posts"%>
