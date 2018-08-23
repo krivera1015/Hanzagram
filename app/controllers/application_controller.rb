@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :is_loggedin?
+  helper_method :is_loggedin?, :current_user
 
   def current_user
     #check session user and set to instance variable to use other in controllers
