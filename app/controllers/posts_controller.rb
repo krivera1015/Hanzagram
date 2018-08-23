@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    byebug
     @post = current_user.posts.build
   end
 

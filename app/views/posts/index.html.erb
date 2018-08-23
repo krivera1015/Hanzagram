@@ -1,6 +1,17 @@
-<% @posts.each do |post| %>
-  <h3><%= post.user.username %></h3><br/>
-  <%= link_to (image_tag post.image), post_path(post) %><br/>
-  <%= post.caption %>
-  <br/>
-<% end %>
+<div class="posts-wrapper row">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="username">
+          <%= post.user.username %>
+        </div>
+      </div>
+      <div class="image center-block">
+        <%= link_to (image_tag post.image), post_path(post) %>
+      </div>
+      <p class="caption">
+        <%= post.caption %>
+      </p>
+    </div>
+  <% end %>
+</div>

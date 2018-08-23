@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-light">
+</nav>
+</nav>
+  <div class="navbar-brand">
+    <h2><%= link_to "HanzAgram", root_path %></h2>
+  </div>
+  <ul class="nav navbar-nav navbar-left">
+    <% if is_loggedin? %>
+       <li>
+         <%= link_to "New Post", new_post_path %>
+       </li>
+       <li>
+         <%= form_tag "/logout", method: :delete do %>
+          <%= submit_tag "Logout" %>
+         <% end %>
+       </li>
+         <% else %>
+       <li>
+         <%= link_to "Log In", login_path %>
+       </li>
+       <li>
+         <%= link_to "Sign Up", new_user_path %>
+       </li>
+     <% end %>
+   </ul>
+
+</div>
+</div>
+</nav>
