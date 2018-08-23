@@ -1,0 +1,8 @@
+<%= form_for @user do |f| %>
+<h4>Change your profile image:</h4>
+  <% profile_avatar(@user) %>
+  <%= f.file_field :avatar %>
+    <h4>Update your bio:</h4>
+      <%= f.text_area :bio, rows: 4 %>
+      <%= f.submit "Update Profile" %>
+<% end %>
