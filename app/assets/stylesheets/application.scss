@@ -144,6 +144,12 @@ html {
   z-index: -100;
 }
 
+li.nav-item{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 15px;
+  margin-left: 15px;
+
 .new-post-background {
   background-image: image-url('new-post-background.jpg');
   height: 100vh;
@@ -155,4 +161,5 @@ html {
   -o-background-size: cover;
   background-size: cover;
   z-index: -100;
+
 }

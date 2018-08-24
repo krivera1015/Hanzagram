@@ -1,38 +1,48 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <div class="navbar-brand">
+  <a class="navbar-brand">
     <h2><%= link_to "HanzAgram", posts_path %></h2>
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <% if session[:user_id] %>
+
+        <li class="nav-item">
+          <a class="nav-link"><%= link_to "New Post", new_post_path%></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"><%= link_to 'My Profile', profile_path(current_user.username) %></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"><%= link_to 'Edit Profile', edit_profile_path(current_user.username) %></a>
+        <li>
+
+        <li class="nav-item">
+          <%= form_tag "/logout", method: :delete do %>
+            <a class="nav-link"><%= submit_tag "Logout", class: 'btn' %></a>
+          <% end %>
+        </li>
+
+      <% else %>
+
+        <li class="nav-item">
+          <a class="nav-link"><%= link_to "Log In", login_path %></a>
+        </li>
+
+         <li class="nav-item">
+           <a class="nav-link"><%= link_to "Sign Up", new_user_path %></a>
+         </li>
+
+       <% end %>
+
+    </ul>
   </div>
-
-  <ul class="nav navbar-nav navbar-left">
-
-
-    <% if session[:user_id] %>
-       <li>
-         <%= link_to "New Post", new_post_path%>
-         <%= link_to 'My Profile', profile_path(current_user.username) %>
-      </li>
-
-
-      <%= link_to 'Edit Profile', edit_profile_path(current_user.username) %>
-
-       <li>
-         <%= form_tag "/logout", method: :delete do %>
-          <%= submit_tag "Logout", class: 'btn' %>
-         <% end %>
-       </li>
-
-    <% else %>
-
-       <li>
-         <%= link_to "Log In", login_path %>
-       </li>
-
-       <li>
-         <%= link_to "Sign Up", new_user_path %>
-       </li>
-
-     <% end %>
-  </ul>
-
 </nav>
