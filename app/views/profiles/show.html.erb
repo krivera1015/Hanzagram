@@ -13,8 +13,9 @@
      <h3 class="profile-user-name">
       <%= @user.username %>
      <br>
-     <h2>Bio:</h2>
-     <%= @user.bio %>
+     <h3>Bio:</h3>
+     <i><%= @user.bio %></i>
+     <br>
      <%= pluralize @user.posts.count, 'post' %>
    </div>
  <% end %>
