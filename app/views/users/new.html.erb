@@ -16,28 +16,28 @@
 
           </div>
 
-            <%= form_for(@user) do |f| %>
+          <%= form_for(@user) do |f| %>
 
-              <div class="panel-body">
-                <div class="input-lg"><%= f.label :username %></div>
-                <div class="input-lg"><%= f.text_field :username %></div>
+            <div class="panel-body">
+              <div class="input-lg"><%= f.label :username %></div>
+              <div class="input-lg"><%= f.text_field :username %></div>
 
-                <div class="input-lg"><%= f.label :password %></div>
-                <div class="input-lg"><%= f.password_field :password %></div>
+              <div class="input-lg"><%= f.label :password %></div>
+              <div class="input-lg"><%= f.password_field :password %></div>
 
-                <div class="btn-sm"><%= f.submit "Sign Up!" %></div>
-                <div class="btn-sm"> <%= f.button link_to "Log In", login_path %></div>
+              <div class="btn-sm"><%= f.submit "Sign Up!" %></div>
+              <div class="btn-sm"> <%= f.button link_to "Log In", login_path %></div>
 
-              </div>
+            </div>
 
-            <% end %>
-
-        </div>
+          <% end %>
 
       </div>
 
     </div>
 
   </div>
+
+</div>
 
 </div>

@@ -10,23 +10,28 @@
 
     </div>
 
-    <div class="col-md-12">
-      <%= profile_avatar(@user) %>
-    </div>
+    <%= profile_avatar(@user) %>
 
-    <div class="row">
+    <div class="col-md-12 text-center">
+
+      <%= form_for @user, url: "/#{@user.username}", method: :patch do |f| %>
 
       <div class="panel-body">
-        <%= form_for @user, url: "/#{@user.username}", method: :patch do |f| %>
-        <div class="input-lg"><%= f.file_field :avatar%></div>
-          <h4>Update your bio:</h4>
-          <div class="input-lg"><%= f.text_area :bio, rows: 4 %></div>
-          <%= f.submit "Update Profile", :class => 'btn btn-primary' %>
+
+        <div class="btn-sm"><%= f.file_field :avatar%></div>
+
+        <h4>Update your bio:</h4>
+
+        <div class="input-lg"><%= f.text_area :bio, rows: 4 %></div>
+
+        <%= f.submit "Update Profile", :class => 'btn btn-primary' %>
+
         <% end %>
+
       </div>
 
     </div>
 
   </div>
-  
+
 </div>
