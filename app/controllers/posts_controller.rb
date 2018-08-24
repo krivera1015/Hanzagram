@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "That is a nice looking picture!"
-      redirect_to posts_path
+      redirect_to profile_path(current_user.username)
     else
       flash.now[:alert] = "Your new post was not processed!"
       render :new

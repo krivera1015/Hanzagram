@@ -1,3 +1,24 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 450px;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.post-item {
+  width: 30%;
+  margin: 15px;
+}
+
+.post-image {
+  width: 100%;
+}
+
+.comment-item {
+  padding: 10px;
+
+  .comment-text {
+    margin: 0;
+  }
+}

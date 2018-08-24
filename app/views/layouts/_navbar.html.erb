@@ -6,15 +6,19 @@
 
   <ul class="nav navbar-nav navbar-left">
 
-    <% if is_loggedin? %>
 
+    <% if session[:user_id] %>
        <li>
-         <%= link_to "New Post", new_post_path %>
+         <%= link_to "New Post", new_post_path%>
+         <%= link_to 'My Profile', profile_path(current_user.username) %>
       </li>
+
+
+      <%= link_to 'Edit Profile', edit_profile_path(current_user.username) %>
 
        <li>
          <%= form_tag "/logout", method: :delete do %>
-          <%= submit_tag "Logout" %>
+          <%= submit_tag "Logout", class: 'btn' %>
          <% end %>
        </li>
 
