@@ -4,7 +4,7 @@ module ApplicationHelper
     if user.avatar.attachment.present?
       image_tag user.avatar.variant(resize: "150x150")
     else
-      image_tag 'default-avatar.jpg'
+      image_tag 'default-avatar.png'
     end
   end
 end
