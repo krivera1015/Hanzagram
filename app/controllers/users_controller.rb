@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_post_path
+      redirect_to edit_profile_path(@user.username)
     else
       render :new
     end
@@ -21,10 +21,16 @@ class UsersController < ApplicationController
   end
 
 
+
+
 private
 
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  def profile_params
+    params.require(:user).permit(:avatar, :bio)
   end
 
   def authorized

@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:username])
+
     @posts = User.find_by(username: params[:username]).posts
   end
 
@@ -17,6 +18,7 @@ class ProfilesController < ApplicationController
       render :edit
     end
   end
+
 
   private
 
