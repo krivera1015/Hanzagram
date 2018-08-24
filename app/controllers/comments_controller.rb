@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       #we must change route this is for testing
-      redirect_to posts_path
+      redirect_to profile_path(current_user.username)
     else
       render post_path(@post)
     end
@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @post.comments.find(params[:id])
-    @comment.destory
-    redirect_to post_path(@post)
+    @comment.destroy
+    redirect_to posts_path
   end
 
 

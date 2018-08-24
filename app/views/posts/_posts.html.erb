@@ -1,28 +1,43 @@
-  <% @posts.each do |post| %>
+<div class="post-list">
 
-  <div class="container">
-    <%= link_to post.user.username, profile_path(post.user.username) %>
-    <br/>
-    <%= link_to (image_tag post.image.variant(resize: "350x350")), post_path(post) %>
-    <br/>
-    <p><%= post.user.username %></p>
-    <%= post.caption %>
-    <% if post.comments %>
-      <% post.comments.each do |comment| %>
-        <%= comment.user.username %>
-        <br/>
-        <%= comment.content %>
-        <br/>
+  <!-- POST CARD -->
+  <% @posts.reverse.each do |post| %>
+  <div class="post-item">
+    <div class="post-content thumbnail">
+      <%= link_to post.user.username, profile_path(post.user.username) %>
+      <br/>
 
-        <% if comment.user == current_user %>
-          <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } do%>
+      <%= link_to (image_tag post.image.variant(resize: "350x350"), class: 'post-image'), post_path(post) %>
+      <p class="image-caption"><%= post.caption %></p>
+    </div>
+
+    <!-- COMMENT SECTION -->
+    <div class="comment-section">
+      <div class="comment-list">
+        <% if post.comments %>
+          <% post.comments.each do |comment| %>
+            <div class="comment-item">
+              <blockquote class="blockquote">
+                <p class="comment-text"><%= comment.content %></p>
+                <footer class="blockquote-footer"><%= comment.user.username %></footer>
+              </blockquote>
+              <% if comment.user == current_user %>
+                <%= link_to 'delete', post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-danger btn' %>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
-      <% end %>
-    <% end %>
+      </div>
 
-    <%= form_for [post, post.comments.new] do |f| %>
-      <%= f.text_field :content, placeholder: 'Add a comment...' %>
-    <% end %>
+      <div class="post-comment-form">
+        <%= form_for [post, post.comments.new] do |f| %>
+          <%= f.text_field :content, placeholder: 'Add a comment...' %>
+        <% end %>
+      </div>
+    </div>
+    <!-- COMMENT SECTION -->
   </div>
+
   <% end %>
+  <!-- POST CARD -->
+</div>

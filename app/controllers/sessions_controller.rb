@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       # We want to show all of the post that are tied to this user
       redirect_to profile_path(@user.username)
     else
+      flash[:alert] = "Username or Password incorrect!"
       redirect_to login_path
     end
   end

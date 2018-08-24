@@ -1,10 +1,23 @@
-<%= profile_avatar(@user) %>
+<style>
+.show-style {
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+  margin: auto;
+}
+ </style>
 
-<h3 class="profile-user-name">
-  <%= @user.username %>
-  <% if @user == current_user %>
-  <%= link_to 'Edit Profile', edit_profile_path(@user.username) %>
-<% end %>
-<%= @user.bio %>
-<%= pluralize @user.posts.count, 'post' %>
+ <% if current_user == @user %>
+   <div class="container">
+     <%= profile_avatar(@user) %>
+     <h3 class="profile-user-name">
+      <%= @user.username %>
+     <br>
+     <h2>Bio:</h2>
+     <%= @user.bio %>
+     <%= pluralize @user.posts.count, 'post' %>
+   </div>
+ <% end %>
+
+<hr>
 <%= render "posts/posts"%>

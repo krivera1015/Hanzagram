@@ -1,4 +1,4 @@
-<div class="login-background"></div>
+<div class="sign-up-background"></div>
 
 <div class="registration-bg">
 
@@ -12,17 +12,17 @@
 
           <div class="panel-heading">
 
-            <h2 id="creation-h2">Create Your Account</h2>
+            <h2 id="sign-up-h2">Create Your Account</h2>
 
           </div>
 
           <%= form_for(@user) do |f| %>
 
             <div class="panel-body">
-              <div class="input-lg"><%= f.label :username %></div>
+              <div class="input-lg" id="sign-up-username"><%= f.label :username %></div>
               <div class="input-lg"><%= f.text_field :username %></div>
 
-              <div class="input-lg"><%= f.label :password %></div>
+              <div class="input-lg" id="sign-up-password"><%= f.label :password %></div>
               <div class="input-lg"><%= f.password_field :password %></div>
 
               <div class="btn-sm"><%= f.submit "Sign Up!" %></div>

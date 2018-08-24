@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   root to: "users#new"
 
-  get ':username', to: 'profiles#show', as: :profile
-  get ':username/edit', to: 'profiles#edit', as: :edit_profile
+  get '/:username', to: 'profiles#show', as: :profile
+  get '/:username/edit', to: 'profiles#edit', as: :edit_profile
   # post ':username', to: 'profiles#update'
   patch '/:username', to: 'profiles#update'
 end
