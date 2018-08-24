@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to edit_profile_path(@user.username)
     else
+      flash[:alert] = "Username must be atleast 4 characters, no more than 16 characters!"
       render :new
     end
   end

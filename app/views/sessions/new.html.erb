@@ -1,7 +1,42 @@
-<%= form_tag do %>
-  <%= label_tag "Username" %>
-  <%= text_field_tag :username %>
-  <%= label_tag "Password" %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Login!" %>
-<% end %>
+<div class="login-background"></div>
+
+<div class="registration-bg">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="log-in panel">
+
+          <div class="panel-heading">
+
+            <h2 id="creation-h2">HanzAgram Welcomes You Back</h2>
+
+          </div>
+
+          <%= form_tag do %>
+
+            <div class="panel-body">
+              <div class="input-lg"><%= label_tag :username %></div>
+              <div class="input-lg"><%= text_field_tag :username %></div>
+
+              <div class="input-lg"><%= label_tag :password %></div>
+              <div class="input-lg"><%= password_field_tag :password %></div>
+
+              <div class="btn-sm"><%= submit_tag "Log In!" %></div>
+
+            </div>
+
+          <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
