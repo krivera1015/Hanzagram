@@ -1,11 +1,42 @@
-<h2>Upload your Picture!</h2>
+<div class="new-post-background"></div>
 
-<%= form_for @post do |f| %>
-<%= f.label :image %>
-<%= f.file_field :image%>
-<br/>
-<%= f.label :caption %>
-<%= f.text_field :caption %>
-<br/>
-<%= f.submit "Upload!"%>
-<% end %>
+<div class="registration-bg">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="log-in panel">
+
+          <div class="panel-heading">
+
+            <h2 id="upload-pic-h2">Upload Your Post</h2>
+
+          </div>
+
+          <%= form_for(@post) do |f| %>
+
+            <div class="panel-body">
+              <div class="input-lg" id="new-post-image"><%= f.label :image %></div>
+              <div class="input-lg"><%= f.file_field :image %></div>
+
+              <div class="input-lg" id="new-post-caption"><%= f.label :caption %></div>
+              <div class="input-lg"><%= f.text_field :caption %></div>
+
+              <div class="btn-sm"><%= f.submit "Upload!" %></div>
+
+            </div>
+
+          <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>

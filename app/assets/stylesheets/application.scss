@@ -92,6 +92,11 @@ html {
 
 }
 
+#upload-pic-h2 {
+  color: #ffcccc;
+
+}
+
 .input-lg{
   color: #fff;
 }
@@ -102,6 +107,14 @@ html {
 
 #sign-up-password.input-lg{
   color: #0066cc;
+}
+
+#new-post-image.input-lg{
+  color: #ffcccc;
+}
+
+#new-post-caption.input-lg{
+  color: #ffcccc;
 }
 
 
@@ -136,4 +149,17 @@ li.nav-item{
   margin-bottom: 0px;
   margin-right: 15px;
   margin-left: 15px;
+
+.new-post-background {
+  background-image: image-url('new-post-background.jpg');
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  position: fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -100;
+
 }
